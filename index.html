@@ -103,7 +103,7 @@
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-6 items-center">
-                    <a href="#" onclick="showPage('home')" class="nav-link nav-home text-brand-gold font-bold transition">Menu Hari Biasa</a>
+                    <a href="#" onclick="showPage('home')" class="nav-link nav-home text-brand-gold font-bold transition">Daftar Menu</a>
                     <a href="#" onclick="showPage('bukber')" class="nav-link nav-bukber hover:text-brand-gold transition">Paket Bukber</a>
                     <a href="#reservasi" class="bg-brand-gold px-4 py-2 font-semibold hover:bg-yellow-600 transition origami-ribbon" style="border-radius: 0;">Reservasi</a>
                 </div>
@@ -120,7 +120,7 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden md:hidden bg-brand-green border-t border-green-700 shadow-lg">
             <div class="px-4 pt-2 pb-4 space-y-2 flex flex-col">
-                <a href="#" onclick="showPage('home')" class="nav-link nav-home block px-3 py-2 text-brand-gold font-bold hover:bg-green-800 transition">Menu Hari Biasa</a>
+                <a href="#" onclick="showPage('home')" class="nav-link nav-home block px-3 py-2 text-brand-gold font-bold hover:bg-green-800 transition">Daftar Menu</a>
                 <a href="#" onclick="showPage('bukber')" class="nav-link nav-bukber block px-3 py-2 hover:bg-green-800 hover:text-brand-gold transition">Paket Bukber</a>
                 <a href="#reservasi" class="block px-3 py-2 mt-2 bg-brand-gold font-semibold text-center hover:bg-yellow-600 transition" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Reservasi</a>
             </div>
@@ -128,7 +128,7 @@
     </nav>
 
     <!-- ============================================== -->
-    <!-- HALAMAN 1: MENU HARI BIASA & GALERI            -->
+    <!-- HALAMAN 1: DAFTAR MENU & GALERI            -->
     <!-- ============================================== -->
     <div id="view-home" class="page-view block">
         
@@ -146,12 +146,12 @@
             </div>
         </section>
 
-        <!-- Menu Hari Biasa Section -->
+        <!-- Daftar Menu Section -->
         <section class="py-16 px-4">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-12">
                     <div class="inline-block bg-brand-green text-white px-10 py-3 origami-ribbon mb-4">
-                        <h2 class="text-3xl md:text-4xl font-serif font-bold">Menu Hari Biasa</h2>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold">Daftar Menu</h2>
                     </div>
                     <p class="mt-4 text-gray-600 font-medium">Daftar menu dan harga reguler di Lesehan Tepi Kali Bontobaddo'.</p>
                 </div>
@@ -159,48 +159,58 @@
                 <!-- Bagian Atas: Paket Puas & Hemat -->
                 <div class="grid lg:grid-cols-2 gap-8 mb-8">
                     <!-- Paket Puas -->
-                    <div class="origami-card">
-                        <div class="bg-red-700 text-white text-center py-4 border-b-2 border-brand-green">
-                            <h3 class="text-2xl font-bold tracking-wider">PAKET PUAS</h3>
-                        </div>
-                        <div class="p-6 md:p-8">
-                            <div class="text-center mb-4 pb-4 border-b-2 border-dashed border-gray-300">
-                                <span class="text-lg text-gray-600 italic">Mulai dari</span>
-                                <p class="text-3xl font-bold text-brand-green">Rp 50.000 <span class="text-sm font-normal text-gray-500">/ porsi</span></p>
+                    <div class="origami-card flex flex-col justify-between">
+                        <div>
+                            <div class="bg-red-700 text-white text-center py-4 border-b-2 border-brand-green">
+                                <h3 class="text-2xl font-bold tracking-wider">PAKET PUAS</h3>
                             </div>
-                            <ul class="space-y-3 text-gray-700 font-medium">
-                                <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Nasi</span></li>
-                                <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Nila Bakar 1 Ekor</span></li>
-                                <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Nila Belah Goreng Kriuk 1 Ekor</span></li>
-                                <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Nila Pallu Kacci (1 Ekor/2 Paket)</span></li>
-                                <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Perkedel Jagung</span></li>
-                                <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Sambal + Raca Mangga</span></li>
-                                <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Tumis Cah Kangkung / Sayur Bening Balante/Daun Kelor (Pilih salah satunya)</span></li>
-                            </ul>
+                            <div class="p-6 md:p-8">
+                                <div class="text-center mb-4 pb-4 border-b-2 border-dashed border-gray-300">
+                                    <span class="text-lg text-gray-600 italic">Mulai dari</span>
+                                    <p class="text-3xl font-bold text-brand-green">Rp 50.000 <span class="text-sm font-normal text-gray-500">/ porsi</span></p>
+                                </div>
+                                <ul class="space-y-3 text-gray-700 font-medium">
+                                    <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Nasi</span></li>
+                                    <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Nila Bakar 1 Ekor</span></li>
+                                    <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Nila Belah Goreng Kriuk 1 Ekor</span></li>
+                                    <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Nila Pallu Kacci (1 Ekor/2 Paket)</span></li>
+                                    <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Perkedel Jagung</span></li>
+                                    <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Sambal + Raca Mangga</span></li>
+                                    <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Tumis Cah Kangkung / Sayur Bening Balante/Daun Kelor (Pilih salah satunya)</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 mt-auto">
+                            <button onclick="scrollToReservation('Paket Puas')" class="w-full bg-brand-gold hover:bg-yellow-600 text-white font-bold py-3 origami-card border-2 border-brand-green transition"><i class="fas fa-calendar-check mr-2"></i> Reservasi Paket Ini</button>
                         </div>
                     </div>
 
                     <!-- Paket Hemat -->
-                    <div class="origami-card">
-                        <div class="bg-red-700 text-white text-center py-4 border-b-2 border-brand-green">
-                            <h3 class="text-2xl font-bold tracking-wider">PAKET HEMAT</h3>
-                        </div>
-                        <div class="p-6 md:p-8">
-                            <div class="bg-yellow-100 text-yellow-800 text-sm p-3 font-bold mb-4 text-center border-2 border-yellow-300 origami-ribbon-left">
-                                <i class="fas fa-info-circle mr-1"></i> *Sudah Termasuk Nasi, Sayur dan Sambal
+                    <div class="origami-card flex flex-col justify-between">
+                        <div>
+                            <div class="bg-red-700 text-white text-center py-4 border-b-2 border-brand-green">
+                                <h3 class="text-2xl font-bold tracking-wider">PAKET HEMAT</h3>
                             </div>
-                            <ul class="space-y-2 text-gray-700">
-                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Nila Bakar</span><span class="font-bold">35rb</span></li>
-                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Nila Goreng</span><span class="font-bold">35rb</span></li>
-                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Nila Pallu Kacci</span><span class="font-bold">35rb</span></li>
-                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Bolu/Bandeng</span><span class="font-bold">35rb</span></li>
-                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Ayam Bakar</span><span class="font-bold">35rb</span></li>
-                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Ayam Goreng</span><span class="font-bold">35rb</span></li>
-                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Bebek Goreng</span><span class="font-bold">35rb</span></li>
-                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Udang Goreng Tepung</span><span class="font-bold">35rb</span></li>
-                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Udang Goreng Bakar</span><span class="font-bold">35rb</span></li>
-                                <li class="flex justify-between pt-1"><span>Ikan Nila Super</span><span class="font-bold">60rb</span></li>
-                            </ul>
+                            <div class="p-6 md:p-8">
+                                <div class="bg-yellow-100 text-yellow-800 text-sm p-3 font-bold mb-4 text-center border-2 border-yellow-300 origami-ribbon-left">
+                                    <i class="fas fa-info-circle mr-1"></i> *Sudah Termasuk Nasi, Sayur dan Sambal
+                                </div>
+                                <ul class="space-y-2 text-gray-700">
+                                    <li class="flex justify-between border-b border-gray-200 pb-2"><span>Nila Bakar</span><span class="font-bold">35rb</span></li>
+                                    <li class="flex justify-between border-b border-gray-200 pb-2"><span>Nila Goreng</span><span class="font-bold">35rb</span></li>
+                                    <li class="flex justify-between border-b border-gray-200 pb-2"><span>Nila Pallu Kacci</span><span class="font-bold">35rb</span></li>
+                                    <li class="flex justify-between border-b border-gray-200 pb-2"><span>Bolu/Bandeng</span><span class="font-bold">35rb</span></li>
+                                    <li class="flex justify-between border-b border-gray-200 pb-2"><span>Ayam Bakar</span><span class="font-bold">35rb</span></li>
+                                    <li class="flex justify-between border-b border-gray-200 pb-2"><span>Ayam Goreng</span><span class="font-bold">35rb</span></li>
+                                    <li class="flex justify-between border-b border-gray-200 pb-2"><span>Bebek Goreng</span><span class="font-bold">35rb</span></li>
+                                    <li class="flex justify-between border-b border-gray-200 pb-2"><span>Udang Goreng Tepung</span><span class="font-bold">35rb</span></li>
+                                    <li class="flex justify-between border-b border-gray-200 pb-2"><span>Udang Goreng Bakar</span><span class="font-bold">35rb</span></li>
+                                    <li class="flex justify-between pt-1"><span>Ikan Nila Super</span><span class="font-bold">60rb</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 mt-auto">
+                            <button onclick="scrollToReservation('Paket Hemat')" class="w-full bg-brand-gold hover:bg-yellow-600 text-white font-bold py-3 origami-card border-2 border-brand-green transition"><i class="fas fa-calendar-check mr-2"></i> Reservasi Paket Ini</button>
                         </div>
                     </div>
                 </div>
@@ -328,59 +338,69 @@
 
             <div class="grid md:grid-cols-2 gap-10">
                 <!-- Paket 1.2 Juta -->
-                <div class="origami-card relative">
-                    <div class="origami-label bg-brand-gold text-white px-6 py-2 font-bold absolute top-4 -right-3 shadow-lg z-10">Terlaris</div>
-                    <div class="bg-brand-green text-white text-center py-6 border-b-4 border-brand-gold">
-                        <h3 class="text-2xl font-bold mb-2">Paket Rombongan Besar</h3>
-                        <p class="text-4xl font-serif text-brand-gold font-bold bg-white inline-block px-4 py-1 origami-card shadow-none">Rp 1.200.000</p>
+                <div class="origami-card relative flex flex-col justify-between">
+                    <div>
+                        <div class="origami-label bg-brand-gold text-white px-6 py-2 font-bold absolute top-4 -right-3 shadow-lg z-10">Terlaris</div>
+                        <div class="bg-brand-green text-white text-center py-6 border-b-4 border-brand-gold">
+                            <h3 class="text-2xl font-bold mb-2">Paket Rombongan Besar</h3>
+                            <p class="text-4xl font-serif text-brand-gold font-bold bg-white inline-block px-4 py-1 origami-card shadow-none">Rp 1.200.000</p>
+                        </div>
+                        <div class="p-6 md:p-8">
+                            <ul class="space-y-3 text-sm md:text-base text-gray-700 font-medium">
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 8 Nasi Bakul</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 12 Ekor Nila Bakar</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 12 Ekor Nila Goreng Belah Kriuk</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 4 Ekor Nila Masak Kuah Kuning (Pallu Kacci)</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 18 Sambel + Raca Mangga</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Ayam Goreng & 2 Ayam Bakar</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 4 Udang Goreng Tepung</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Cumi Kuah Hitam</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> Parkedel Jagung</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Porsi Peccel Sayur</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> Sayur Cah Tumis Kangkung & Bening Daun Kelor</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Porsi Pisang Goreng & 2 Porsi Bakwan</li>
+                                <div class="border-t-2 border-dashed border-gray-300 pt-3 mt-3 font-bold text-brand-green">Minuman Spesial:</div>
+                                <li class="flex items-center"><i class="fas fa-glass-water text-brand-blue mr-3"></i> 18 Air Botol Mineral</li>
+                                <li class="flex items-center"><i class="fas fa-martini-glass text-brand-gold mr-3"></i> 4 Jus Alpukat, 2 Jus Buah Naga, 4 Jus Jeruk</li>
+                                <li class="flex items-center"><i class="fas fa-mug-hot text-brand-gold mr-3"></i> 4 Es Kelapa Muda & 4 Esteh</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="p-6 md:p-8">
-                        <ul class="space-y-3 text-sm md:text-base text-gray-700 font-medium">
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 8 Nasi Bakul</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 12 Ekor Nila Bakar</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 12 Ekor Nila Goreng Belah Kriuk</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 4 Ekor Nila Masak Kuah Kuning (Pallu Kacci)</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 18 Sambel + Raca Mangga</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Ayam Goreng & 2 Ayam Bakar</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 4 Udang Goreng Tepung</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Cumi Kuah Hitam</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> Parkedel Jagung</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Porsi Peccel Sayur</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> Sayur Cah Tumis Kangkung & Bening Daun Kelor</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Porsi Pisang Goreng & 2 Porsi Bakwan</li>
-                            <div class="border-t-2 border-dashed border-gray-300 pt-3 mt-3 font-bold text-brand-green">Minuman Spesial:</div>
-                            <li class="flex items-center"><i class="fas fa-glass-water text-brand-blue mr-3"></i> 18 Air Botol Mineral</li>
-                            <li class="flex items-center"><i class="fas fa-martini-glass text-brand-gold mr-3"></i> 4 Jus Alpukat, 2 Jus Buah Naga, 4 Jus Jeruk</li>
-                            <li class="flex items-center"><i class="fas fa-mug-hot text-brand-gold mr-3"></i> 4 Es Kelapa Muda & 4 Esteh</li>
-                        </ul>
+                    <div class="p-6 pt-0 mt-auto">
+                        <button onclick="scrollToReservation('Paket Bukber Rp 1.200.000')" class="w-full bg-brand-gold hover:bg-yellow-600 text-white font-bold py-3 origami-card border-2 border-brand-green transition"><i class="fas fa-calendar-check mr-2"></i> Reservasi Paket Ini</button>
                     </div>
                 </div>
 
                 <!-- Paket 650 Ribu -->
-                <div class="origami-card">
-                    <div class="bg-brand-green text-white text-center py-6 border-b-4 border-brand-gold opacity-95">
-                        <h3 class="text-2xl font-bold mb-2">Paket Keluarga Pilihan</h3>
-                        <p class="text-4xl font-serif text-brand-gold font-bold bg-white inline-block px-4 py-1 origami-card shadow-none">Rp 650.000</p>
+                <div class="origami-card flex flex-col justify-between">
+                    <div>
+                        <div class="bg-brand-green text-white text-center py-6 border-b-4 border-brand-gold opacity-95">
+                            <h3 class="text-2xl font-bold mb-2">Paket Keluarga Pilihan</h3>
+                            <p class="text-4xl font-serif text-brand-gold font-bold bg-white inline-block px-4 py-1 origami-card shadow-none">Rp 650.000</p>
+                        </div>
+                        <div class="p-6 md:p-8">
+                            <ul class="space-y-3 text-sm md:text-base text-gray-700 font-medium">
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 4 Nasi Bakul</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 6 Ekor Nila Bakar</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 6 Ekor Nila Goreng Belah Kriuk</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Ekor Nila Masak Kuah Kuning (Pallu Kacci)</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 9 Sambel + Raca Mangga</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 1 Ayam Goreng & 1 Ayam Bakar</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Udang Goreng Tepung</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 1 Cumi Kuah Hitam</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> Parkedel Jagung</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 1 Porsi Peccel Sayur</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> Sayur Cah Tumis Kangkung & Bening Daun Kelor</li>
+                                <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 1 Porsi Pisang Goreng & 1 Porsi Bakwan</li>
+                                <div class="border-t-2 border-dashed border-gray-300 pt-3 mt-3 font-bold text-brand-green">Minuman Spesial:</div>
+                                <li class="flex items-center"><i class="fas fa-glass-water text-brand-blue mr-3"></i> 9 Air Botol Mineral</li>
+                                <li class="flex items-center"><i class="fas fa-martini-glass text-brand-gold mr-3"></i> 2 Jus Alpukat, 1 Jus Buah Naga, 2 Jus Jeruk</li>
+                                <li class="flex items-center"><i class="fas fa-mug-hot text-brand-gold mr-3"></i> 2 Es Kelapa Muda & 2 Esteh</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="p-6 md:p-8">
-                        <ul class="space-y-3 text-sm md:text-base text-gray-700 font-medium">
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 4 Nasi Bakul</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 6 Ekor Nila Bakar</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 6 Ekor Nila Goreng Belah Kriuk</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Ekor Nila Masak Kuah Kuning (Pallu Kacci)</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 9 Sambel + Raca Mangga</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 1 Ayam Goreng & 1 Ayam Bakar</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Udang Goreng Tepung</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 1 Cumi Kuah Hitam</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> Parkedel Jagung</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 1 Porsi Peccel Sayur</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> Sayur Cah Tumis Kangkung & Bening Daun Kelor</li>
-                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 1 Porsi Pisang Goreng & 1 Porsi Bakwan</li>
-                            <div class="border-t-2 border-dashed border-gray-300 pt-3 mt-3 font-bold text-brand-green">Minuman Spesial:</div>
-                            <li class="flex items-center"><i class="fas fa-glass-water text-brand-blue mr-3"></i> 9 Air Botol Mineral</li>
-                            <li class="flex items-center"><i class="fas fa-martini-glass text-brand-gold mr-3"></i> 2 Jus Alpukat, 1 Jus Buah Naga, 2 Jus Jeruk</li>
-                            <li class="flex items-center"><i class="fas fa-mug-hot text-brand-gold mr-3"></i> 2 Es Kelapa Muda & 2 Esteh</li>
-                        </ul>
+                    <div class="p-6 pt-0 mt-auto">
+                        <button onclick="scrollToReservation('Paket Bukber Rp 650.000')" class="w-full bg-brand-gold hover:bg-yellow-600 text-white font-bold py-3 origami-card border-2 border-brand-green transition"><i class="fas fa-calendar-check mr-2"></i> Reservasi Paket Ini</button>
                     </div>
                 </div>
             </div>
@@ -395,7 +415,7 @@
     <section id="reservasi" class="py-16 px-4 max-w-4xl mx-auto">
         <div class="origami-card p-8 md:p-12 border-t-8 border-t-brand-green">
             <div class="text-center mb-8">
-                <h2 class="text-3xl font-serif font-bold text-gray-800 mb-2">Reservasi Tempat</h2>
+                <h2 class="text-3xl font-serif font-bold text-gray-800 mb-2">Reservasi Tempat Online</h2>
                 <div class="h-1 w-16 bg-brand-gold mx-auto mb-4"></div>
                 <p class="text-gray-500 font-medium">Isi formulir di bawah ini untuk mengamankan meja Anda. Data akan langsung terkirim ke WhatsApp Admin.</p>
             </div>
@@ -421,11 +441,13 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-2">Tujuan Kunjungan / Paket</label>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Pilihan Paket / Menu</label>
                     <select id="resPackage" class="w-full px-4 py-3 border-2 border-gray-300 focus:ring-0 focus:border-brand-green outline-none" style="border-radius: 0;">
-                        <option value="Menu Hari Biasa / Pesan di Lokasi">Menu Hari Biasa / Pesan di Lokasi</option>
-                        <option value="Paket Bukber 1.2 Juta">Paket Bukber Rp 1.200.000</option>
-                        <option value="Paket Bukber 650 Ribu">Paket Bukber Rp 650.000</option>
+                        <option value="Paket Puas">Paket Puas</option>
+                        <option value="Paket Hemat">Paket Hemat</option>
+                        <option value="Paket Bukber Rp 1.200.000">Paket Bukber Rp 1.200.000</option>
+                        <option value="Paket Bukber Rp 650.000">Paket Bukber Rp 650.000</option>
+                        <option value="Daftar Menu Lainnya">Daftar Menu Lainnya</option>
                     </select>
                 </div>
 
@@ -530,6 +552,12 @@
 
             // Tutup menu mobile jika sedang terbuka
             document.getElementById('mobileMenu').classList.add('hidden');
+        }
+
+        // --- Logika Scroll to Reservasi ---
+        function scrollToReservation(paketName) {
+            document.getElementById('resPackage').value = paketName;
+            document.getElementById('reservasi').scrollIntoView({ behavior: 'smooth' });
         }
 
         // --- Logika Mobile Menu ---
