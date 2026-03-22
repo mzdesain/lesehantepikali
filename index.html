@@ -45,37 +45,67 @@
             pointer-events: auto;
         }
         .bg-hero {
-            background-image: linear-gradient(rgba(22, 101, 52, 0.85), rgba(22, 101, 52, 0.9)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-image: linear-gradient(rgba(68, 100, 25, 0.85), rgba(68, 100, 25, 0.9)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
-        /* Style Rajut / Knitted Texture & Stitches */
-        .bg-rajut {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='24'%3E%3Cpath d='M8 0L0 8v8l8-8 8 8v-8z' fill='%23446419' fill-opacity='0.08'/%3E%3C/svg%3E");
+        
+        /* STYLE ORIGAMI */
+        .bg-origami {
+            background-color: #f7fcf3;
+            background-image: 
+                linear-gradient(135deg, #edf4e3 25%, transparent 25%),
+                linear-gradient(225deg, #edf4e3 25%, transparent 25%),
+                linear-gradient(45deg, #edf4e3 25%, transparent 25%),
+                linear-gradient(315deg, #edf4e3 25%, #f7fcf3 25%);
+            background-position:  15px 0, 15px 0, 0 0, 0 0;
+            background-size: 30px 30px;
+            background-repeat: repeat;
         }
-        .border-jahitan {
-            border: 2px dashed #446419;
+        
+        /* Kartu dengan gaya lipatan kertas / flat shadow origami */
+        .origami-card {
+            background: white;
+            border: 2px solid #446419;
+            border-radius: 0; /* Sudut tajam khas origami */
+            box-shadow: 6px 6px 0px #F27409;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .origami-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px #F27409;
+        }
+
+        /* Pita lipatan */
+        .origami-ribbon {
+            clip-path: polygon(100% 0, 95% 50%, 100% 100%, 0 100%, 0 0);
+        }
+        .origami-ribbon-left {
+            clip-path: polygon(100% 0, 100% 100%, 0 100%, 5% 50%, 0 0);
+        }
+        .origami-label {
+            clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0 100%, 10% 50%, 0 0);
         }
     </style>
 </head>
-<body class="bg-gray-50 bg-rajut text-gray-800 font-sans antialiased">
+<body class="bg-gray-50 bg-origami text-gray-800 font-sans antialiased">
 
     <!-- Navbar -->
-    <nav class="bg-brand-green text-white shadow-lg sticky top-0 z-40">
+    <nav class="bg-brand-green text-white shadow-lg sticky top-0 z-40 border-b-4 border-brand-gold">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex-shrink-0 font-serif text-xl font-bold tracking-wider flex items-center">
-                    <img src="Logo.jpg" alt="Logo Lesehan Tepi Kali" class="h-10 w-10 object-cover bg-white rounded-full p-0.5 mr-2">
+                    <img src="Gambar WhatsApp 2025-03-05 pukul 12.52.17_30705ed9.jpg" alt="Logo Lesehan Tepi Kali" class="h-10 w-10 object-cover bg-white p-0.5 mr-2" style="border-radius: 0;">
                     Lesehan Tepi Kali
                 </div>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-6 items-center">
-                    <a href="#beranda" class="hover:text-brand-gold transition">Beranda</a>
-                    <a href="#paket" class="hover:text-brand-gold transition">Paket Bukber</a>
-                    <a href="#minuman" class="hover:text-brand-gold transition">Menu Minuman</a>
-                    <a href="#reservasi" class="bg-brand-gold px-4 py-2 rounded-full font-semibold hover:bg-yellow-600 transition">Reservasi</a>
+                    <a href="#" onclick="showPage('home')" class="nav-link nav-home text-brand-gold font-bold transition">Menu Hari Biasa</a>
+                    <a href="#" onclick="showPage('bukber')" class="nav-link nav-bukber hover:text-brand-gold transition">Paket Bukber</a>
+                    <a href="#reservasi" class="bg-brand-gold px-4 py-2 font-semibold hover:bg-yellow-600 transition origami-ribbon" style="border-radius: 0;">Reservasi</a>
                 </div>
 
                 <!-- Hamburger Button (Mobile) -->
@@ -90,202 +120,333 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden md:hidden bg-brand-green border-t border-green-700 shadow-lg">
             <div class="px-4 pt-2 pb-4 space-y-2 flex flex-col">
-                <a href="#beranda" class="block px-3 py-2 rounded-md hover:bg-green-800 hover:text-brand-gold transition">Beranda</a>
-                <a href="#paket" class="block px-3 py-2 rounded-md hover:bg-green-800 hover:text-brand-gold transition">Paket Bukber</a>
-                <a href="#minuman" class="block px-3 py-2 rounded-md hover:bg-green-800 hover:text-brand-gold transition">Menu Minuman</a>
-                <a href="#reservasi" class="block px-3 py-2 mt-2 bg-brand-gold rounded-md font-semibold text-center hover:bg-yellow-600 transition">Reservasi</a>
+                <a href="#" onclick="showPage('home')" class="nav-link nav-home block px-3 py-2 text-brand-gold font-bold hover:bg-green-800 transition">Menu Hari Biasa</a>
+                <a href="#" onclick="showPage('bukber')" class="nav-link nav-bukber block px-3 py-2 hover:bg-green-800 hover:text-brand-gold transition">Paket Bukber</a>
+                <a href="#reservasi" class="block px-3 py-2 mt-2 bg-brand-gold font-semibold text-center hover:bg-yellow-600 transition" onclick="document.getElementById('mobileMenu').classList.add('hidden')">Reservasi</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="beranda" class="bg-hero text-white py-24 px-4 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-brand-gold font-semibold tracking-widest uppercase mb-3">Selamat Datang di</h2>
-            <h1 class="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">Lesehan Tepi Kali <br> Bontobaddo'</h1>
-            <p class="text-lg md:text-2xl font-light mb-8 italic">
-                "Buka Puasa Berkah di Lesehan Tepi Kali Bontobaddo’ – Dengarkan Ceramah Penuh Hikmah Sambil Menanti Waktu Berbuka!"
-            </p>
-            <div class="flex justify-center gap-4 text-sm md:text-base">
-                <p><i class="fas fa-location-dot text-brand-gold mr-2"></i> Kel. Botoramba, Kec. Somba Opu, Kab. Gowa</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Paket Bukber Section -->
-    <section id="paket" class="py-16 px-4 max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-4">Paket Bukber Berkah Berjamaah</h2>
-            <div class="h-1 w-24 bg-brand-gold mx-auto rounded"></div>
-            <p class="mt-4 text-gray-600">Pilihan paket hemat dan nikmat untuk berbuka puasa bersama keluarga dan kerabat tercinta.</p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8">
-            <!-- Paket 1.2 Juta -->
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border-jahitan hover:shadow-2xl transition duration-300 relative">
-                <div class="absolute top-0 right-0 bg-brand-gold text-white px-4 py-1 rounded-bl-lg font-bold">Terlaris</div>
-                <div class="bg-brand-green text-white text-center py-6">
-                    <h3 class="text-2xl font-bold mb-2">Paket Rombongan Besar</h3>
-                    <p class="text-4xl font-serif text-brand-gold font-bold">Rp 1.200.000</p>
-                </div>
-                <div class="p-6 md:p-8">
-                    <ul class="space-y-3 text-sm md:text-base text-gray-700">
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 8 Nasi Bakul</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 12 Ekor Nila Bakar</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 12 Ekor Nila Goreng Belah Kriuk</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 4 Ekor Nila Masak Kuah Kuning (Pallu Kacci)</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 18 Sambel + Raca Mangga</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 2 Ayam Goreng & 2 Ayam Bakar</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 4 Udang Goreng Tepung</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 2 Cumi Kuah Hitam</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> Parkedel Jagung</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 2 Porsi Peccel Sayur</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> Sayur Cah Tumis Kangkung & Bening Daun Kelor</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 2 Porsi Pisang Goreng & 2 Porsi Bakwan</li>
-                        <div class="border-t pt-2 mt-2 font-semibold text-brand-green">Minuman:</div>
-                        <li class="flex items-center"><i class="fas fa-glass-water text-brand-blue mr-3"></i> 18 Air Botol Mineral</li>
-                        <li class="flex items-center"><i class="fas fa-martini-glass text-brand-gold mr-3"></i> 4 Jus Alpukat, 2 Jus Buah Naga, 4 Jus Jeruk</li>
-                        <li class="flex items-center"><i class="fas fa-mug-hot text-brand-gold mr-3"></i> 4 Es Kelapa Muda & 4 Esteh</li>
-                    </ul>
+    <!-- ============================================== -->
+    <!-- HALAMAN 1: MENU HARI BIASA & GALERI            -->
+    <!-- ============================================== -->
+    <div id="view-home" class="page-view block">
+        
+        <!-- Hero Section (Reguler) -->
+        <section class="bg-hero text-white py-24 px-4 text-center">
+            <div class="max-w-4xl mx-auto bg-brand-green bg-opacity-90 p-8 origami-card border-brand-gold border-4">
+                <h2 class="text-brand-gold font-semibold tracking-widest uppercase mb-3">Selamat Datang di</h2>
+                <h1 class="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">Lesehan Tepi Kali <br> Bontobaddo'</h1>
+                <p class="text-lg md:text-xl font-light mb-8 italic text-gray-200">
+                    Sajian Nusantara Otentik di Tepi Aliran Sungai yang Menenangkan.
+                </p>
+                <div class="flex justify-center gap-4 text-sm md:text-base">
+                    <p><i class="fas fa-location-dot text-brand-gold mr-2"></i> Kel. Botoramba, Kec. Somba Opu, Kab. Gowa</p>
                 </div>
             </div>
+        </section>
 
-            <!-- Paket 650 Ribu -->
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border-jahitan hover:shadow-2xl transition duration-300">
-                <div class="bg-brand-green text-white text-center py-6 opacity-90">
-                    <h3 class="text-2xl font-bold mb-2">Paket Keluarga Pilihan</h3>
-                    <p class="text-4xl font-serif text-brand-gold font-bold">Rp 650.000</p>
+        <!-- Menu Hari Biasa Section -->
+        <section class="py-16 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12">
+                    <div class="inline-block bg-brand-green text-white px-10 py-3 origami-ribbon mb-4">
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold">Menu Hari Biasa</h2>
+                    </div>
+                    <p class="mt-4 text-gray-600 font-medium">Daftar menu dan harga reguler di Lesehan Tepi Kali Bontobaddo'.</p>
                 </div>
-                <div class="p-6 md:p-8">
-                    <ul class="space-y-3 text-sm md:text-base text-gray-700">
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 4 Nasi Bakul</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 6 Ekor Nila Bakar</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 6 Ekor Nila Goreng Belah Kriuk</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 2 Ekor Nila Masak Kuah Kuning (Pallu Kacci)</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 9 Sambel + Raca Mangga</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 1 Ayam Goreng & 1 Ayam Bakar</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 2 Udang Goreng Tepung</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 1 Cumi Kuah Hitam</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> Parkedel Jagung</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 1 Porsi Peccel Sayur</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> Sayur Cah Tumis Kangkung & Bening Daun Kelor</li>
-                        <li class="flex items-center"><i class="fas fa-check text-brand-green mr-3"></i> 1 Porsi Pisang Goreng & 1 Porsi Bakwan</li>
-                        <div class="border-t pt-2 mt-2 font-semibold text-brand-green">Minuman:</div>
-                        <li class="flex items-center"><i class="fas fa-glass-water text-brand-blue mr-3"></i> 9 Air Botol Mineral</li>
-                        <li class="flex items-center"><i class="fas fa-martini-glass text-brand-gold mr-3"></i> 2 Jus Alpukat, 1 Jus Buah Naga, 2 Jus Jeruk</li>
-                        <li class="flex items-center"><i class="fas fa-mug-hot text-brand-gold mr-3"></i> 2 Es Kelapa Muda & 2 Esteh</li>
-                    </ul>
+
+                <!-- Bagian Atas: Paket Puas & Hemat -->
+                <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                    <!-- Paket Puas -->
+                    <div class="origami-card">
+                        <div class="bg-red-700 text-white text-center py-4 border-b-2 border-brand-green">
+                            <h3 class="text-2xl font-bold tracking-wider">PAKET PUAS</h3>
+                        </div>
+                        <div class="p-6 md:p-8">
+                            <div class="text-center mb-4 pb-4 border-b-2 border-dashed border-gray-300">
+                                <span class="text-lg text-gray-600 italic">Mulai dari</span>
+                                <p class="text-3xl font-bold text-brand-green">Rp 50.000 <span class="text-sm font-normal text-gray-500">/ porsi</span></p>
+                            </div>
+                            <ul class="space-y-3 text-gray-700 font-medium">
+                                <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Nasi</span></li>
+                                <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Nila Bakar 1 Ekor</span></li>
+                                <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Nila Belah Goreng Kriuk 1 Ekor</span></li>
+                                <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Nila Pallu Kacci (1 Ekor/2 Paket)</span></li>
+                                <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Perkedel Jagung</span></li>
+                                <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Sambal + Raca Mangga</span></li>
+                                <li class="flex items-start"><i class="fas fa-caret-right text-brand-gold mt-1 mr-3 text-xl"></i> <span>Tumis Cah Kangkung / Sayur Bening Balante/Daun Kelor (Pilih salah satunya)</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Paket Hemat -->
+                    <div class="origami-card">
+                        <div class="bg-red-700 text-white text-center py-4 border-b-2 border-brand-green">
+                            <h3 class="text-2xl font-bold tracking-wider">PAKET HEMAT</h3>
+                        </div>
+                        <div class="p-6 md:p-8">
+                            <div class="bg-yellow-100 text-yellow-800 text-sm p-3 font-bold mb-4 text-center border-2 border-yellow-300 origami-ribbon-left">
+                                <i class="fas fa-info-circle mr-1"></i> *Sudah Termasuk Nasi, Sayur dan Sambal
+                            </div>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Nila Bakar</span><span class="font-bold">35rb</span></li>
+                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Nila Goreng</span><span class="font-bold">35rb</span></li>
+                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Nila Pallu Kacci</span><span class="font-bold">35rb</span></li>
+                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Bolu/Bandeng</span><span class="font-bold">35rb</span></li>
+                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Ayam Bakar</span><span class="font-bold">35rb</span></li>
+                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Ayam Goreng</span><span class="font-bold">35rb</span></li>
+                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Bebek Goreng</span><span class="font-bold">35rb</span></li>
+                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Udang Goreng Tepung</span><span class="font-bold">35rb</span></li>
+                                <li class="flex justify-between border-b border-gray-200 pb-2"><span>Udang Goreng Bakar</span><span class="font-bold">35rb</span></li>
+                                <li class="flex justify-between pt-1"><span>Ikan Nila Super</span><span class="font-bold">60rb</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian Bawah: Menu Lainnya (3 Kolom) -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Menu Tambahan Satuan -->
+                    <div class="origami-card p-6">
+                        <div class="bg-brand-green text-white py-2 px-4 mb-4 origami-ribbon inline-block">
+                            <h4 class="text-xl font-bold"><i class="fas fa-utensils mr-2 text-brand-gold"></i>Tambahan Satuan</h4>
+                        </div>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Nasi / piring</span><span class="font-bold text-brand-green">5rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Nasi / bakul</span><span class="font-bold text-brand-green">20rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Udang Goreng Tepung</span><span class="font-bold text-brand-green">25rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Udang Bakar</span><span class="font-bold text-brand-green">25rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Cumi Tumis Hitam</span><span class="font-bold text-brand-green">50rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Cumi Goreng Tepung</span><span class="font-bold text-brand-green">50rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Perkedel Jagung</span><span class="font-bold text-brand-green">10rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Tambah Sambal</span><span class="font-bold text-brand-green">10rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Raca Mangga</span><span class="font-bold text-brand-green">10rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Tempe Tahu Goreng</span><span class="font-bold text-brand-green">10rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Sayur Cah Kangkung Tumis</span><span class="font-bold text-brand-green">10rb</span></li>
+                            <li class="flex justify-between pt-1"><span>Sayur Bening Balante/Daun Kelor</span><span class="font-bold text-brand-green">10rb</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Cemilan -->
+                    <div class="origami-card p-6">
+                        <div class="bg-brand-gold text-white py-2 px-4 mb-4 origami-ribbon inline-block">
+                            <h4 class="text-xl font-bold"><i class="fas fa-cookie mr-2 text-brand-green"></i>Cemilan</h4>
+                        </div>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Ubi Goreng</span><span class="font-bold text-brand-green">15rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Pisang Goreng</span><span class="font-bold text-brand-green">15rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Bakwan</span><span class="font-bold text-brand-green">20rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Paccala' (Pecel Sayur)</span><span class="font-bold text-brand-green">20rb</span></li>
+                            <li class="flex justify-between pt-1"><span>Kerupuk Peyek</span><span class="font-bold text-brand-green">6rb</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Minuman -->
+                    <div class="origami-card p-6">
+                        <div class="bg-brand-blue text-white py-2 px-4 mb-4 origami-ribbon inline-block">
+                            <h4 class="text-xl font-bold"><i class="fas fa-glass-water mr-2 text-brand-gold"></i>Daftar Minuman</h4>
+                        </div>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Es Teh</span><span class="font-bold text-brand-green">5rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Teh Hangat</span><span class="font-bold text-brand-green">5rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Kopi Hitam</span><span class="font-bold text-brand-green">7rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Kopi Susu</span><span class="font-bold text-brand-green">10rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Jus Jeruk</span><span class="font-bold text-brand-green">10rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Jus Alpukat</span><span class="font-bold text-brand-green">15rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Jus Buah Naga</span><span class="font-bold text-brand-green">13rb</span></li>
+                            <li class="flex justify-between border-b border-gray-100 pb-1"><span>Es Kelapa Muda</span><span class="font-bold text-brand-green">10rb</span></li>
+                            <li class="flex justify-between pt-1"><span>Air Botol Mineral</span><span class="font-bold text-brand-green">5rb</span></li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Menu Minuman Section -->
-    <section id="minuman" class="py-16 px-4 bg-brand-light">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-green mb-4">Menu Minuman Tambahan</h2>
-                <div class="h-1 w-24 bg-brand-gold mx-auto rounded"></div>
-                <p class="mt-4 text-gray-600">Pilihan minuman segar di luar paket.</p>
-            </div>
+        <!-- Galeri Foto Makanan Section (NEW) -->
+        <section class="py-16 px-4 bg-brand-green text-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-gold mb-2">Galeri Sajian</h2>
+                    <div class="h-1 w-24 bg-white mx-auto mt-2"></div>
+                    <p class="mt-4 text-gray-200">Intip hidangan spesial yang siap memanjakan lidah Anda.</p>
+                </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Item Minuman -->
-                <div class="bg-white p-4 rounded-xl shadow flex justify-between items-center border-jahitan">
-                    <span class="font-medium text-gray-800"><i class="fas fa-blender text-brand-green mr-2"></i>Jus Alpukat</span>
-                    <span class="font-bold text-brand-green">15rb</span>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow flex justify-between items-center border-jahitan">
-                    <span class="font-medium text-gray-800"><i class="fas fa-blender text-brand-gold mr-2"></i>Jus Buah Naga</span>
-                    <span class="font-bold text-brand-green">13rb</span>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow flex justify-between items-center border-jahitan">
-                    <span class="font-medium text-gray-800"><i class="fas fa-mug-hot text-brand-gold mr-2"></i>Jeruk Hangat</span>
-                    <span class="font-bold text-brand-green">10rb</span>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow flex justify-between items-center border-jahitan">
-                    <span class="font-medium text-gray-800"><i class="fas fa-glass-water-droplet text-brand-gold mr-2"></i>Es Jeruk Peras</span>
-                    <span class="font-bold text-brand-green">10rb</span>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow flex justify-between items-center border-jahitan">
-                    <span class="font-medium text-gray-800"><i class="fas fa-glass-water-droplet text-brand-blue mr-2"></i>Es Kelapa Muda</span>
-                    <span class="font-bold text-brand-green">10rb</span>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow flex justify-between items-center border-jahitan">
-                    <span class="font-medium text-gray-800"><i class="fas fa-mug-saucer text-brand-gold mr-2"></i>Es Teh / Teh Panas</span>
-                    <span class="font-bold text-brand-green">5rb</span>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow flex justify-between items-center border-jahitan">
-                    <span class="font-medium text-gray-800"><i class="fas fa-mug-hot text-gray-800 mr-2"></i>Kopi Hitam</span>
-                    <span class="font-bold text-brand-green">7rb</span>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow flex justify-between items-center border-jahitan">
-                    <span class="font-medium text-gray-800"><i class="fas fa-mug-hot text-brand-gold mr-2"></i>Kopi Susu</span>
-                    <span class="font-bold text-brand-green">10rb</span>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow flex justify-between items-center border-jahitan">
-                    <span class="font-medium text-gray-800"><i class="fas fa-bottle-water text-brand-blue mr-2"></i>Air Mineral Botol</span>
-                    <span class="font-bold text-brand-green">5rb</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="origami-card p-2 shadow-none border-brand-gold">
+                        <img src="" class="w-full h-56 object-cover" alt="Nila Bakar">
+                        <p class="text-center text-brand-green font-bold mt-2 pb-1">Nila Bakar Bumbu</p>
+                    </div>
+                    <div class="origami-card p-2 shadow-none border-brand-gold">
+                        <img src="" class="w-full h-56 object-cover" alt="Ayam Goreng">
+                        <p class="text-center text-brand-green font-bold mt-2 pb-1">Ayam Goreng Gurih</p>
+                    </div>
+                    <div class="origami-card p-2 shadow-none border-brand-gold">
+                        <img src="" class="w-full h-56 object-cover" alt="Tumis Sayur">
+                        <p class="text-center text-brand-green font-bold mt-2 pb-1">Tumis Kangkung</p>
+                    </div>
+                    <div class="origami-card p-2 shadow-none border-brand-gold">
+                        <img src="" class="w-full h-56 object-cover" alt="Minuman Segar">
+                        <p class="text-center text-brand-green font-bold mt-2 pb-1">Minuman Segar</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Form Reservasi Section -->
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- HALAMAN 2: PAKET BUKBER KHUSUS                 -->
+    <!-- ============================================== -->
+    <div id="view-bukber" class="page-view hidden">
+        
+        <!-- Hero Section (Bukber Khusus) -->
+        <section class="bg-hero text-white py-24 px-4 text-center border-b-8 border-brand-gold">
+            <div class="max-w-4xl mx-auto bg-brand-green bg-opacity-90 p-8 origami-card border-brand-gold border-4">
+                <h2 class="text-brand-gold font-semibold tracking-widest uppercase mb-3">Spesial Ramadan</h2>
+                <h1 class="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">Buka Puasa Berkah</h1>
+                <p class="text-lg md:text-2xl font-light mb-8 italic text-gray-200">
+                    "Dengarkan Ceramah Penuh Hikmah Sambil Menanti Waktu Berbuka!"
+                </p>
+                <div class="flex justify-center gap-4 text-sm md:text-base">
+                    <p><i class="fas fa-location-dot text-brand-gold mr-2"></i> Lesehan Tepi Kali Bontobaddo'</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Paket Bukber Section -->
+        <section class="py-16 px-4 max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="inline-block bg-brand-gold text-white px-10 py-3 origami-ribbon mb-4">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold">Paket Berkah Berjamaah</h2>
+                </div>
+                <p class="mt-4 text-gray-600 font-medium">Pilihan paket hemat dan nikmat untuk berbuka puasa bersama keluarga dan kerabat tercinta.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Paket 1.2 Juta -->
+                <div class="origami-card relative">
+                    <div class="origami-label bg-brand-gold text-white px-6 py-2 font-bold absolute top-4 -right-3 shadow-lg z-10">Terlaris</div>
+                    <div class="bg-brand-green text-white text-center py-6 border-b-4 border-brand-gold">
+                        <h3 class="text-2xl font-bold mb-2">Paket Rombongan Besar</h3>
+                        <p class="text-4xl font-serif text-brand-gold font-bold bg-white inline-block px-4 py-1 origami-card shadow-none">Rp 1.200.000</p>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <ul class="space-y-3 text-sm md:text-base text-gray-700 font-medium">
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 8 Nasi Bakul</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 12 Ekor Nila Bakar</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 12 Ekor Nila Goreng Belah Kriuk</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 4 Ekor Nila Masak Kuah Kuning (Pallu Kacci)</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 18 Sambel + Raca Mangga</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Ayam Goreng & 2 Ayam Bakar</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 4 Udang Goreng Tepung</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Cumi Kuah Hitam</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> Parkedel Jagung</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Porsi Peccel Sayur</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> Sayur Cah Tumis Kangkung & Bening Daun Kelor</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Porsi Pisang Goreng & 2 Porsi Bakwan</li>
+                            <div class="border-t-2 border-dashed border-gray-300 pt-3 mt-3 font-bold text-brand-green">Minuman Spesial:</div>
+                            <li class="flex items-center"><i class="fas fa-glass-water text-brand-blue mr-3"></i> 18 Air Botol Mineral</li>
+                            <li class="flex items-center"><i class="fas fa-martini-glass text-brand-gold mr-3"></i> 4 Jus Alpukat, 2 Jus Buah Naga, 4 Jus Jeruk</li>
+                            <li class="flex items-center"><i class="fas fa-mug-hot text-brand-gold mr-3"></i> 4 Es Kelapa Muda & 4 Esteh</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Paket 650 Ribu -->
+                <div class="origami-card">
+                    <div class="bg-brand-green text-white text-center py-6 border-b-4 border-brand-gold opacity-95">
+                        <h3 class="text-2xl font-bold mb-2">Paket Keluarga Pilihan</h3>
+                        <p class="text-4xl font-serif text-brand-gold font-bold bg-white inline-block px-4 py-1 origami-card shadow-none">Rp 650.000</p>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <ul class="space-y-3 text-sm md:text-base text-gray-700 font-medium">
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 4 Nasi Bakul</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 6 Ekor Nila Bakar</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 6 Ekor Nila Goreng Belah Kriuk</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Ekor Nila Masak Kuah Kuning (Pallu Kacci)</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 9 Sambel + Raca Mangga</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 1 Ayam Goreng & 1 Ayam Bakar</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 2 Udang Goreng Tepung</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 1 Cumi Kuah Hitam</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> Parkedel Jagung</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 1 Porsi Peccel Sayur</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> Sayur Cah Tumis Kangkung & Bening Daun Kelor</li>
+                            <li class="flex items-center"><i class="fas fa-check-square text-brand-gold mr-3"></i> 1 Porsi Pisang Goreng & 1 Porsi Bakwan</li>
+                            <div class="border-t-2 border-dashed border-gray-300 pt-3 mt-3 font-bold text-brand-green">Minuman Spesial:</div>
+                            <li class="flex items-center"><i class="fas fa-glass-water text-brand-blue mr-3"></i> 9 Air Botol Mineral</li>
+                            <li class="flex items-center"><i class="fas fa-martini-glass text-brand-gold mr-3"></i> 2 Jus Alpukat, 1 Jus Buah Naga, 2 Jus Jeruk</li>
+                            <li class="flex items-center"><i class="fas fa-mug-hot text-brand-gold mr-3"></i> 2 Es Kelapa Muda & 2 Esteh</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- FORM RESERVASI (TERLIHAT DI KEDUA HALAMAN)     -->
+    <!-- ============================================== -->
     <section id="reservasi" class="py-16 px-4 max-w-4xl mx-auto">
-        <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border-jahitan">
+        <div class="origami-card p-8 md:p-12 border-t-8 border-t-brand-green">
             <div class="text-center mb-8">
                 <h2 class="text-3xl font-serif font-bold text-gray-800 mb-2">Reservasi Tempat</h2>
-                <p class="text-gray-500">Isi formulir di bawah ini untuk mengamankan tempat buka puasa Anda. Data akan langsung dikirim ke WhatsApp Admin.</p>
+                <div class="h-1 w-16 bg-brand-gold mx-auto mb-4"></div>
+                <p class="text-gray-500 font-medium">Isi formulir di bawah ini untuk mengamankan meja Anda. Data akan langsung terkirim ke WhatsApp Admin.</p>
             </div>
 
             <form id="reservationForm" onsubmit="submitReservation(event)" class="space-y-6">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Pemesan</label>
-                        <input type="text" id="resName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" placeholder="Contoh: Bpk. Andi">
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Nama Pemesan</label>
+                        <input type="text" id="resName" required class="w-full px-4 py-3 border-2 border-gray-300 focus:ring-0 focus:border-brand-green outline-none" style="border-radius: 0;" placeholder="Contoh: Bpk. Andi">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">No. Handphone / WA</label>
-                        <input type="tel" id="resPhone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" placeholder="0812xxxxxx">
+                        <label class="block text-sm font-bold text-gray-700 mb-2">No. Handphone / WA</label>
+                        <input type="tel" id="resPhone" required class="w-full px-4 py-3 border-2 border-gray-300 focus:ring-0 focus:border-brand-green outline-none" style="border-radius: 0;" placeholder="0812xxxxxx">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Tanggal Reservasi</label>
-                        <input type="date" id="resDate" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none">
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Tanggal Reservasi</label>
+                        <input type="date" id="resDate" required class="w-full px-4 py-3 border-2 border-gray-300 focus:ring-0 focus:border-brand-green outline-none" style="border-radius: 0;">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Jumlah Orang (Pax)</label>
-                        <input type="number" id="resPax" required min="1" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" placeholder="Berapa orang?">
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Jumlah Orang (Pax)</label>
+                        <input type="number" id="resPax" required min="1" class="w-full px-4 py-3 border-2 border-gray-300 focus:ring-0 focus:border-brand-green outline-none" style="border-radius: 0;" placeholder="Berapa orang?">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Pilihan Paket</label>
-                    <select id="resPackage" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none">
-                        <option value="Paket 1.2 Juta">Paket Rp 1.200.000</option>
-                        <option value="Paket 650 Ribu">Paket Rp 650.000</option>
-                        <option value="Hanya Reservasi Tempat / Pesan di Lokasi">Lainnya / Pesan di Tempat</option>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Tujuan Kunjungan / Paket</label>
+                    <select id="resPackage" class="w-full px-4 py-3 border-2 border-gray-300 focus:ring-0 focus:border-brand-green outline-none" style="border-radius: 0;">
+                        <option value="Menu Hari Biasa / Pesan di Lokasi">Menu Hari Biasa / Pesan di Lokasi</option>
+                        <option value="Paket Bukber 1.2 Juta">Paket Bukber Rp 1.200.000</option>
+                        <option value="Paket Bukber 650 Ribu">Paket Bukber Rp 650.000</option>
                     </select>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Catatan Tambahan / Pesanan Ekstra</label>
-                    <textarea id="resNote" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" placeholder="Contoh: Tambah 2 Jus Alpukat, Minta meja dekat sungai, dll."></textarea>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Catatan Tambahan / Pesanan Ekstra</label>
+                    <textarea id="resNote" rows="3" class="w-full px-4 py-3 border-2 border-gray-300 focus:ring-0 focus:border-brand-green outline-none" style="border-radius: 0;" placeholder="Contoh: Minta meja dekat sungai, dll."></textarea>
                 </div>
 
-                <button type="submit" class="w-full bg-brand-green hover:bg-green-800 text-white font-bold py-4 rounded-xl text-lg transition duration-300 shadow-lg flex justify-center items-center">
-                    <i class="fab fa-whatsapp text-2xl mr-2"></i> Kirim Reservasi via WhatsApp
+                <button type="submit" class="w-full bg-brand-green hover:bg-green-800 text-white font-bold py-4 text-lg transition duration-300 flex justify-center items-center origami-card border-none text-shadow">
+                    <i class="fab fa-whatsapp text-2xl mr-2 text-brand-gold"></i> Kirim Reservasi via WhatsApp
                 </button>
             </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-12 border-t-4 border-brand-gold">
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t-8 border-brand-gold">
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-center md:text-left">
             <div>
                 <h3 class="text-2xl font-serif font-bold text-white mb-4">Lesehan Tepi Kali Bontobaddo'</h3>
-                <p class="mb-4">Buka Puasa Berkah – Dengarkan Ceramah Penuh Hikmah Sambil Menanti Waktu Berbuka.</p>
+                <p class="mb-4">Nikmati sensasi makan di tepi sungai dengan sajian Nusantara terbaik.</p>
             </div>
             <div>
                 <h4 class="text-lg font-bold text-white mb-4">Lokasi Kami</h4>
@@ -295,8 +456,8 @@
             <div>
                 <h4 class="text-lg font-bold text-white mb-4">Ikuti Kami</h4>
                 <div class="flex justify-center md:justify-start space-x-4">
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-blue transition text-white"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 flex items-center justify-center hover:bg-brand-blue transition text-white origami-card border-none shadow-none"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition text-white origami-card border-none shadow-none"><i class="fab fa-instagram"></i></a>
                 </div>
                 <p class="mt-2 text-sm">@Lesehan Tepi Kali Bontobaddo’</p>
             </div>
@@ -310,13 +471,13 @@
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
         
         <!-- Kotak Chat Pop up -->
-        <div id="waPopup" class="chat-popup bg-white rounded-2xl shadow-2xl w-72 mb-4 border border-gray-200 overflow-hidden">
+        <div id="waPopup" class="chat-popup bg-white origami-card border-2 w-72 mb-4 overflow-hidden">
             <div class="bg-brand-green text-white p-4 flex justify-between items-center">
                 <div class="flex items-center">
                     <i class="fas fa-headset text-2xl mr-3"></i>
                     <div>
                         <h4 class="font-bold text-sm">Admin Lesehan</h4>
-                        <p class="text-xs text-green-200">Online</p>
+                        <p class="text-xs text-brand-gold font-bold">Online</p>
                     </div>
                 </div>
                 <button onclick="toggleWaPopup()" class="text-white hover:text-gray-200 focus:outline-none">
@@ -324,25 +485,52 @@
                 </button>
             </div>
             <div class="p-4 bg-gray-50">
-                <p class="text-sm text-gray-600 bg-white p-3 rounded-lg shadow-sm border border-gray-100 mb-3 rounded-tl-none inline-block">
+                <p class="text-sm text-gray-600 bg-white p-3 border border-gray-200 mb-3 inline-block shadow-sm">
                     Halo! Ada yang bisa kami bantu seputar menu atau reservasi? 😊
                 </p>
-                <textarea id="waMessage" rows="2" class="w-full border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green resize-none" placeholder="Ketik pesan Anda di sini..."></textarea>
-                <button onclick="sendQuickMessage()" class="mt-2 w-full bg-brand-green hover:bg-green-800 text-white font-bold py-2 px-4 rounded-lg text-sm transition flex justify-center items-center">
-                    <i class="fas fa-paper-plane mr-2"></i> Kirim ke WA
+                <textarea id="waMessage" rows="2" class="w-full border-2 border-gray-300 p-2 text-sm focus:outline-none focus:border-brand-green resize-none" placeholder="Ketik pesan Anda di sini..."></textarea>
+                <button onclick="sendQuickMessage()" class="mt-2 w-full bg-brand-green hover:bg-green-800 text-white font-bold py-2 px-4 text-sm transition flex justify-center items-center">
+                    <i class="fas fa-paper-plane mr-2 text-brand-gold"></i> Kirim ke WA
                 </button>
             </div>
         </div>
 
         <!-- Tombol Bulat Melayang -->
-        <button onclick="toggleWaPopup()" class="bg-brand-green hover:bg-green-800 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-green-300">
-            <i class="fab fa-whatsapp text-3xl"></i>
+        <button onclick="toggleWaPopup()" class="bg-brand-green hover:bg-green-800 text-white w-14 h-14 flex items-center justify-center transition-all duration-300 focus:outline-none origami-card" style="border-radius: 0;">
+            <i class="fab fa-whatsapp text-3xl text-brand-gold"></i>
         </button>
     </div>
 
     <!-- SCRIPT LOGIKA -->
     <script>
-        const WA_ADMIN = "6281355031626"; // Nomor WA tanpa angka 0 di depan, diganti 62
+        const WA_ADMIN = "6281355031626";
+
+        // --- Logika Pindah Halaman (SPA) ---
+        function showPage(pageName) {
+            // Sembunyikan semua page-view
+            document.querySelectorAll('.page-view').forEach(el => el.classList.add('hidden'));
+            
+            // Tampilkan halaman yang dipilih
+            document.getElementById('view-' + pageName).classList.remove('hidden');
+
+            // Reset style semua tombol navigasi
+            document.querySelectorAll('.nav-link').forEach(el => {
+                el.classList.remove('text-brand-gold', 'font-bold');
+                el.classList.add('hover:text-brand-gold');
+            });
+
+            // Beri warna khusus pada tombol halaman yang aktif
+            document.querySelectorAll('.nav-' + pageName).forEach(el => {
+                el.classList.add('text-brand-gold', 'font-bold');
+                el.classList.remove('hover:text-brand-gold');
+            });
+
+            // Gulir ke atas
+            window.scrollTo(0, 0);
+
+            // Tutup menu mobile jika sedang terbuka
+            document.getElementById('mobileMenu').classList.add('hidden');
+        }
 
         // --- Logika Mobile Menu ---
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -352,16 +540,7 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Tutup menu mobile jika salah satu link diklik
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
         // --- Logika Widget WA ---
-        // Fungsi Toggle Pop up WA Melayang
         function toggleWaPopup() {
             const popup = document.getElementById('waPopup');
             popup.classList.toggle('active');
@@ -370,7 +549,6 @@
             }
         }
 
-        // Fungsi Kirim Pesan Cepat dari Widget Melayang
         function sendQuickMessage() {
             const msg = document.getElementById('waMessage').value;
             if(msg.trim() === '') {
@@ -384,9 +562,8 @@
         }
 
         // --- Logika Form Reservasi ---
-        // Fungsi Kirim Form Reservasi
         function submitReservation(event) {
-            event.preventDefault(); // Mencegah reload halaman
+            event.preventDefault(); 
             
             const name = document.getElementById('resName').value;
             const phone = document.getElementById('resPhone').value;
@@ -395,13 +572,11 @@
             const package = document.getElementById('resPackage').value;
             const note = document.getElementById('resNote').value;
 
-            // Format Tanggal (Opsional biar lebih rapi)
             const dateObj = new Date(date);
             const formattedDate = dateObj.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-            // Susun teks untuk WhatsApp
             let waText = `*HALO ADMIN LESEHAN TEPI KALI*%0A`;
-            waText += `Saya ingin melakukan reservasi Buka Puasa, berikut detailnya:%0A%0A`;
+            waText += `Saya ingin melakukan reservasi, berikut detailnya:%0A%0A`;
             waText += `👤 *Nama:* ${name}%0A`;
             waText += `📱 *No. WA:* ${phone}%0A`;
             waText += `📅 *Tanggal:* ${formattedDate}%0A`;
@@ -414,7 +589,6 @@
 
             waText += `%0AMohon infokan ketersediaan tempatnya. Terima kasih! 🙏`;
 
-            // Buka link WhatsApp di tab baru
             const waUrl = `https://wa.me/${WA_ADMIN}?text=${waText}`;
             window.open(waUrl, '_blank');
         }
